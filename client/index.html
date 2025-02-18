@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airports API Client</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Airports API Client</h1>
+
+    <!-- Form to add a new airport -->
+    <form id="airportForm">
+      <input
+        type="text"
+        id="code"
+        placeholder="Code (3-6 uppercase)"
+        required
+      />
+      <input type="text" id="city" placeholder="City (1-40 chars)" required />
+      <input type="number" id="latitude" name="latitude" step="any" required />
+      <input
+        type="number"
+        id="longitude"
+        name="longitude"
+        step="any"
+        placeholder="Longitude (-180 to 180)"
+        required
+      />
+      <select id="kind">
+        <option value="Passenger">Passenger</option>
+        <option value="Cargo">Cargo</option>
+        <option value="Military">Military</option>
+        <option value="Private">Private</option>
+      </select>
+      <button type="submit">Add Airport</button>
+    </form>
+
+    <button id="fetchAirports">Fetch Airports</button>
+    <a href="map.html">View Map</a>
+
+    <table class="table table-bordered table-striped">
+      <thead class="table-primary">
+        <tr>
+          <th>Code</th>
+          <th>City</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Kind</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="airportsTable">
+        <!-- Airport rows will be inserted here -->
+      </tbody>
+    </table>
+    <!-- Update Airport Modal -->
+
+    <div
+      class="modal fade"
+      id="updateModal"
+      tabindex="-1"
+      aria-labelledby="updateModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="updateModalLabel">
+              UpdateAirport
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="updateForm">
+              <input type="hidden" id="editCode" />
+
+              <div class="mb-3">
+                <label for="editCity" class="form-label">City:</label>
+                <input class="form-control" id="editCity" required />
+              </div>
+              <div class="mb-3">
+                <label for="editLatitude" class="form-label">Latitude:</label>
+                <input class="form-control" id="editLatitude" required />
+              </div>
+              <div class="mb-3">
+                <label for="editLongitude" class="form-label"
+                  >Longtitude:</label
+                >
+                <input class="form-control" id="editLongitude" required />
+              </div>
+              <div class="mb-3">
+                <label for="editKind" class="form-label">Kind:</label>
+                <select id="editKind" class="formSelect" required>
+                  <option value="Passenger">Passenger</option>
+                  <option value="Cargo">Cargo</option>
+                  <option value="Military">Military</option>
+                  <option value="Private">Private</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Update Airport
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./scripts/validator.js"></script>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>

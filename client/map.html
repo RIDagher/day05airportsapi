@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airport Locations</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="./scripts/maps.js"></script>
+    <!-- Load Google Maps API (Replace YOUR_API_KEY with an actual key) -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5EuI1t9Ipd0_yQEIfSzUKR4QQXrpn5EM&callback=initMap"
+    ></script>
+  </head>
+  <body>
+    <h1>Airport Locations on Map</h1>
+    <a href="index.html">Back to List</a>
+
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <style>
+      #map {
+        height: 500px;
+        width: 90%;
+        margin: auto;
+      }
+    </style>
+  </body>
+</html>
