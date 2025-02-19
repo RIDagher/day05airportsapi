@@ -21,7 +21,7 @@ export const getAllAirports = async (req, res) => {
  * Get an airport by its code
  */
 export const getAirportByCode = async (req, res) => {
-  const { code } = req.params;
+  const { code } = req.params; // validate code
   logger.info(`Request received: Fetch airport with code ${code}`);
 
   try {
